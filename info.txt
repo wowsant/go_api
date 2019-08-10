@@ -1,0 +1,36 @@
+Atualizar carbon
+Arquivo:
+    composer.json
+{
+  ...
+  "require": {
+    ...
+    "kylekatarnls/laravel-carbon-2": "^1.0.0",
+    "nesbot/carbon": "2.0.0-beta.2 as 1.25.0"
+  }
+  ...
+}
+https://github.com/kylekatarnls/laravel-carbon-2
+-------------------------------------------------
+JWT
+Instalação biblioteca: https://www.youtube.com/watch?v=Qf4Dg-pIPu0&list=PLSYIyzca1f9zdXl6l7y2GkxwYsUfXGGCf&index=5
+https://github.com/tymondesigns/jwt-auth/wiki/Installation
+jwt-auth
+
+1° Rodar comando: composer require tymon/jwt-auth:0.5.12
+
+2° config/app.php
+    providers: Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+    aliases: 'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+             'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
+
+3° Rodas comando: php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
+    *** esse comando gera o arquivo jwt.php
+
+4° .env: JWT_SECRET=8EhtZp8=
+
+5° app/Http/Kernel.php
+    routeMiddleware:  'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+	                  'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
+
+6°
