@@ -1,0 +1,30 @@
+CRIAR NOVA MIGRAÇÃO
+    php artisan make:migration create_users_table
+EXECULTAR MIGRAÇÃO
+    php artisan migrate
+FORÇAR MIGRAÇÃO
+    php artisan migrate --force
+REVERTER MIGRAÇÃO
+    php artisan migrate:rollback
+
+
+composer create-project --prefer-dist laravel/laravel carrinhoDeCompras 5.3
+php artisan make:model Produto -m
+php artisan make:model CupomDesconto -m
+php artisan migrate
+php artisan make:controller HomeController
+php artisan make:controller Admin/ProdutoController
+php artisan make:controller Admin/CupomDescontoController
+
+
+
+php artisan make:auth
+
+php artisan serve
+
+php artisan make:model Pedido -m
+php artisan make:model PedidoProduto -m
+php artisan migrate
+php artisan make:controller CarrinhoController
+
+php artisan app:name nomeAplicacao

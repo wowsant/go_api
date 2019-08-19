@@ -14,5 +14,9 @@ Route::post('auth/login', 'Api\AuthController@login');
 Route::post('auth/refresh', 'Api\AuthController@refresh');
 Route::post('auth/logout', 'Api\AuthController@logout');
 Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api\\'], function() {
+
+
     Route::get('auth/me', 'AuthController@me');
+
+    Route::resource('situacao', 'SituacaoController');
 });
